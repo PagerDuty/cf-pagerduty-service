@@ -1,0 +1,16 @@
+hash: c0409b5ac20e56de05c4a44e4d5d1ccf9a6cde23a6f34e74bfd165821f48698f
+updated: 2017-02-27T14:19:19.364329347-08:00
+imports:
+- name: code.cloudfoundry.org/lager
+  version: e95b952e262dcdb521c8b029ba15853f59292726
+- name: github.com/cloudfoundry-incubator/candiedyaml
+  version: 99c3df83b51532e3615f851d8c2dbb638f5313bf
+- name: github.com/gorilla/context
+  version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
+- name: github.com/gorilla/mux
+  version: cf79e51a62d8219d52060dfc1b4e810414ba2d15
+- name: github.com/pivotal-cf/brokerapi
+  version: cf242ed1d0039504f3fa463b3f54d759a995920c
+  subpackages:
+  - auth
+testImports: []

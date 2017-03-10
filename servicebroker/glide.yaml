@@ -1,0 +1,5 @@
+package: cf-pagerduty-service/servicebroker
+import:
+- package: code.cloudfoundry.org/lager
+- package: github.com/cloudfoundry-incubator/candiedyaml
+- package: github.com/pivotal-cf/brokerapi

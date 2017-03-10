@@ -1,0 +1,12 @@
+hash: 69ddb3196a021b1d1ee64914ae5c31b90aedda00d1309579f453742a40f9c4ea
+updated: 2017-03-01T14:09:06.798573143-08:00
+imports:
+- name: code.cloudfoundry.org/lager
+  version: e95b952e262dcdb521c8b029ba15853f59292726
+- name: github.com/cloudfoundry-incubator/candiedyaml
+  version: 99c3df83b51532e3615f851d8c2dbb638f5313bf
+- name: github.com/gorilla/context
+  version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
+- name: github.com/gorilla/mux
+  version: 392c28fe23e1c45ddba891b0320b3b5df220beea
+testImports: []

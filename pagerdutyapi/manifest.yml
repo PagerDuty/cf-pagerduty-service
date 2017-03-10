@@ -1,0 +1,6 @@
+---
+applications:
+- name: pagerduty-api
+  buildpack: go_buildpack
+  env:
+    GOPACKAGENAME: src

@@ -1,0 +1,6 @@
+package: cf-pagerduty-service/pagerdutyapi
+import:
+- package: code.cloudfoundry.org/lager
+- package: github.com/gorilla/mux
+  version: v1.3.0
+- package: github.com/cloudfoundry-incubator/candiedyaml
