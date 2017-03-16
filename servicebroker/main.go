@@ -7,6 +7,7 @@ import (
 
 	"cf-pagerduty-service/servicebroker/broker"
 	"cf-pagerduty-service/servicebroker/config"
+	"cf-pagerduty-service/servicebroker/integrations"
 
 	"code.cloudfoundry.org/lager"
 	"github.com/pivotal-cf/brokerapi"
@@ -30,7 +31,15 @@ func main() {
 			"broker-config-path": brokerConfigPath,
 		})
 	}
-	service := &broker.PagerDutyBroker{Config: parsedConfig}
+	parsedIntegrations, err := integrations.ParseIntegrations("integrations/integrations.yml")
+	if err != nil {
+		logger.Fatal("Loading integrations file", err)
+	}
+
+	service := &broker.PagerDutyBroker{
+		Config:       parsedConfig,
+		Integrations: parsedIntegrations,
+	}
 
 	newBroker := brokerapi.New(service, logger, brokerCredentials)
 

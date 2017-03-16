@@ -4,13 +4,15 @@ import (
 	"context"
 
 	"cf-pagerduty-service/servicebroker/config"
+	"cf-pagerduty-service/servicebroker/integrations"
 
 	"github.com/pivotal-cf/brokerapi"
 )
 
 // PagerDutyBroker broker configuration
 type PagerDutyBroker struct {
-	Config config.Config
+	Config       config.Config
+	Integrations integrations.Integrations
 }
 
 // Services services broker generates
@@ -59,7 +61,7 @@ func (pagerDutyBroker *PagerDutyBroker) Deprovision(context context.Context, ins
 // Bind bind services to apps
 func (pagerDutyBroker *PagerDutyBroker) Bind(context context.Context, instanceID string, bindingID string, details brokerapi.BindDetails) (brokerapi.Binding, error) {
 	return brokerapi.Binding{
-			Credentials: pagerDutyBroker.Config.BrokerConfiguration.Token},
+			Credentials: pagerDutyBroker},
 		nil
 }
 
