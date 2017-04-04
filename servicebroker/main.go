@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 
@@ -21,8 +22,8 @@ func main() {
 	brokerConfigPath := configPath()
 
 	brokerCredentials := brokerapi.BrokerCredentials{
-		Username: "admin",
-		Password: "pagerduty",
+		Username: getEnv("SECURITY_USER_NAME", "admin"),
+		Password: getEnv("SECURITY_USER_PASSWORD", "pagerduty"),
 	}
 
 	parsedConfig, err := config.ParseConfig(brokerConfigPath)
@@ -62,4 +63,14 @@ func configPath() string {
 		return defaultConfigYamlPath
 	}
 	return brokerConfigYamlPath
+}
+
+func getEnv(env string, defaultValue string) string {
+	var v string
+	if v = os.Getenv(env); len(v) == 0 {
+		log.Printf("Using default value for %v", env)
+		return defaultValue
+	}
+
+	return v
 }
