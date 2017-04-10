@@ -1,6 +1,6 @@
 ---
 applications:
-- name: pagerduty-broker
+- name: pagerduty-servicebroker
   buildpack: go_buildpack
   env:
     GOPACKAGENAME: src

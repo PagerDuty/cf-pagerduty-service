@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"cf-pagerduty-service/servicebroker/broker"
-	"cf-pagerduty-service/servicebroker/config"
 	"cf-pagerduty-service/servicebroker/integrations"
 
 	"code.cloudfoundry.org/lager"
@@ -19,26 +18,26 @@ func main() {
 	logger.RegisterSink(lager.NewWriterSink(os.Stdout, lager.DEBUG))
 	logger.RegisterSink(lager.NewWriterSink(os.Stdout, lager.ERROR))
 
-	brokerConfigPath := configPath()
+	// brokerConfigPath := configPath()
 
 	brokerCredentials := brokerapi.BrokerCredentials{
 		Username: getEnv("SECURITY_USER_NAME", "admin"),
 		Password: getEnv("SECURITY_USER_PASSWORD", "pagerduty"),
 	}
 
-	parsedConfig, err := config.ParseConfig(brokerConfigPath)
-	if err != nil {
-		logger.Fatal("Loading config file", err, lager.Data{
-			"broker-config-path": brokerConfigPath,
-		})
-	}
+	// parsedConfig, err := config.ParseConfig(brokerConfigPath)
+	// if err != nil {
+	// 	logger.Fatal("Loading config file", err, lager.Data{
+	// 		"broker-config-path": brokerConfigPath,
+	// 	})
+	// }
 	parsedIntegrations, err := integrations.ParseIntegrations("integrations/integrations.yml")
 	if err != nil {
 		logger.Fatal("Loading integrations file", err)
 	}
 
 	service := &broker.PagerDutyBroker{
-		Config:       parsedConfig,
+		// Config:       parsedConfig,
 		Integrations: parsedIntegrations,
 	}
 

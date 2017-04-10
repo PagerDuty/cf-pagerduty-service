@@ -3,7 +3,6 @@ package broker
 import (
 	"context"
 
-	"cf-pagerduty-service/servicebroker/config"
 	"cf-pagerduty-service/servicebroker/integrations"
 
 	"github.com/pivotal-cf/brokerapi"
@@ -11,7 +10,7 @@ import (
 
 // PagerDutyBroker broker configuration
 type PagerDutyBroker struct {
-	Config       config.Config
+	// Config       config.Config
 	Integrations integrations.Integrations
 }
 
