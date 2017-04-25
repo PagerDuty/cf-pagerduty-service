@@ -1,0 +1,8 @@
+---
+applications:
+- name: pagerduty-broker-local
+  path: app.zip
+  buildpack: go_buildpack
+  env:
+    GOPACKAGENAME: main
+    BROKER_CONFIG_PATH: config.yml
